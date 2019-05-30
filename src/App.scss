@@ -1,7 +1,14 @@
 #frame {
   width: 100%;
   min-height: 100%;
-  border: solid 3px black;
+  background:tomato;
+  display: grid;
+  grid-gap: 3px;
+  padding: 3px;
 
-  // use grid gap for borders
+  > section {
+    background: #fff;
+  }
+
+  // use grid gap for bordersy
 }
