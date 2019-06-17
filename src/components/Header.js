@@ -8,16 +8,20 @@ import { FaGithub, FaBitbucket, FaPhone, FaEnvelope } from "react-icons/fa"
 
 function Header() {
  return (
-    <header>
-      <div className="logo">Logo</div>
-      <div className="links">
-        <FaGithub />
-        <FaBitbucket />
-        <FaPhone />
-        <FaEnvelope />
-      </div>
-    </header>
-  )
+   <header>
+     <div className='container'>
+       <div className='inner'>
+         <div className='logo'>Logo</div>
+         <div className='links'>
+           <FaGithub />
+           <FaBitbucket />
+           <FaPhone />
+           <FaEnvelope />
+         </div>
+       </div>
+     </div>
+   </header>
+ )
 }
 
 export default Header

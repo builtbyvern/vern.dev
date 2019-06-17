@@ -1,0 +1,8 @@
+.container {
+  display: grid;
+  grid-template-columns: minmax(1rem, auto) minmax(auto, 800px) minmax(1rem, auto);
+
+  .inner {
+    grid-column: 2 / 3;
+  }
+}

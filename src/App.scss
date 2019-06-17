@@ -1,7 +1,8 @@
+@import "./scss/variables";
+
 #frame {
   width: 100%;
-  min-height: 100%;
-  background:tomato;
+  background:$coty;
   display: grid;
   grid-gap: 3px;
   padding: 3px;
