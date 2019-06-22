@@ -1,0 +1,40 @@
+@import "../../scss/variables";
+
+.logo {
+  display: flex;
+
+  .image {
+    img {
+      width: 100px;
+      border-radius: 100px;
+      box-shadow: 
+        0 0 0 9px #fff,
+        0 0 0 10px $text;
+    }
+  }
+
+  .name {
+    background: #fff;
+    padding: 10px;
+    text-align: center;
+
+    h1 {
+      margin: 0;
+      font-size: 54px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .firstname {
+      color: $coty;
+      font-weight: 600;
+    }
+    .lastname {
+      font-weight: 100;
+    }
+  }
+}

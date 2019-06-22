@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap');
 @import url(../node_modules/sanitize.css/sanitize.css);
 @import "./scss/variables";
 @import "./scss/layout.scss";
@@ -6,9 +7,6 @@
 
 body {
   margin: 0;
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -16,6 +14,7 @@ body {
 body, html {
   min-height: 100%;
   height: 100%;
+  color: $text;
 }
 
 code {

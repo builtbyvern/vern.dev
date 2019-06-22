@@ -1,4 +1,5 @@
 import React from 'react'
+import Logo from './Header/Logo'
 import './Header.scss'
 import { FaGithub, FaBitbucket, FaPhone, FaEnvelope } from "react-icons/fa"
 
@@ -11,7 +12,7 @@ function Header() {
    <header>
      <div className='container'>
        <div className='inner'>
-         <div className='logo'>Logo</div>
+         <Logo />
          <div className='links'>
            <FaGithub />
            <FaBitbucket />
