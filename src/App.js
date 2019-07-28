@@ -1,4 +1,4 @@
-import React, { setState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
 import Header from './components/Header'
 import About from './components/About'
@@ -20,15 +20,6 @@ const client = contentful.createClient({
 })
 
 
-client.getEntries().then(entries => {
-  entries.items.forEach(entry => {
-    if(entry.fields) {
-      console.log(entry.fields)
-    }
-  })
-})
-
-
 const typography = new Typography({
   baseFontSize: '21px',
   googleFonts: [
@@ -41,13 +32,22 @@ const typography = new Typography({
         '700i',
       ],
     },
+    {
+      name: 'Fira+Sans',
+      styles: [
+        '400',
+        '400i',
+        '700',
+        '700i',
+      ],
+    },
   ],
   headerFontFamily: [
-    "Source Sans Pro", 
+    "Fira Sans", 
     'serif'
   ],
   bodyFontFamily: [
-    'Source Serif Pro',
+    'Fira Sans',
     'sans-serif'
   ]
 
@@ -55,16 +55,69 @@ const typography = new Typography({
 
 typography.injectStyles()
 
-
-
 function App() {
+  const [data, setData] = useState(null)
+  const [aboutContent, setAboutContent] = useState(null)
+  const [experienceContent, setExperienceContent] = useState(null)
+  const [skillzContent, setSkillzContent] = useState(null)
+  const [achievementsContent, setAchievementsContent] = useState(null)
+
+  // fetch data
+  useEffect(() => {
+    client.getEntries().then(entries => {
+      setData(entries.items)
+      /*
+      entries.items.forEach(entry => {
+        if (entry.fields) {
+          setData(entry.fields)
+        }
+      })
+      */
+    })
+  }, [])
+
+  useEffect(() => {
+    if (data) {
+      let experience = []
+      let skillz = []
+      let achievements = []
+
+      data.forEach(entry => {
+        // console.log(entry.sys.contentType.sys.id)
+        const entrydata = entry.fields
+
+        switch (entry.sys.contentType.sys.id) {
+          case 'about' :
+            setAboutContent(entrydata)
+            break
+          case 'experience' : 
+            experience.push(entrydata)
+            break
+          case 'skillz' :
+            skillz.push(entrydata)
+            break
+          case 'achievements' : 
+            achievements.push(entrydata)
+            break
+          default:
+            return null
+        }
+      })
+
+      setExperienceContent(experience)
+      setAchievementsContent(achievements)
+      setSkillzContent(skillz)
+    }
+
+  }, [data])
+
   return (
     <div id="frame">
       <Header />
-      <About />
-      <Experience />
-      <Blah />
-      <Footer />
+      <About data={aboutContent} />
+      <Experience data={experienceContent} />
+      <Blah data={achievementsContent} />
+      <Footer data={skillzContent} />
     </div>
   );
 }

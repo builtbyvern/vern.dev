@@ -5,7 +5,7 @@ function Logo() {
   return (
     <div className="logo">
       <div className='image'>
-        <img src="https://placeimg.com/640/640/any" />
+        <img src="https://placeimg.com/640/640/any" alt="Vern" />
       </div>
       <div className="name">
         <h1><span className="firstname">VERN</span><span className="lastname">BRIGGS</span></h1>
